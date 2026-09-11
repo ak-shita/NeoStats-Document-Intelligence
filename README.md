@@ -72,6 +72,7 @@ Set the following values in `.env` (never commit this file):
 ```dotenv
 OCR_SPACE_API_KEY=
 GEMINI_API_KEY=
+# Railway's MYSQL_URL can be referenced directly; mysql:// and mysql+pymysql:// are supported.
 DATABASE_URL=mysql+pymysql://username:password@localhost:3306/neostats_document_intelligence
 # Needed when a separate static frontend calls the API, for example:
 CORS_ORIGINS=https://your-frontend.onrender.com

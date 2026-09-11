@@ -23,6 +23,20 @@ class Base(DeclarativeBase):
     """Declarative base for ORM models."""
 
 
+def normalize_database_url(database_url: str) -> str:
+    """Select PyMySQL when Railway supplies SQLAlchemy's bare MySQL URL.
+
+    Railway MySQL commonly exposes ``mysql://...``. SQLAlchemy maps that
+    legacy scheme to the optional MySQLdb driver, while this project declares
+    and supports PyMySQL. Explicit ``mysql+pymysql://...`` URLs pass through
+    unchanged; no credentials are added, altered, or logged.
+    """
+    url = database_url.strip()
+    if url.lower().startswith("mysql://"):
+        return f"mysql+pymysql://{url[len('mysql://'):]}"
+    return url
+
+
 def _engine_kwargs(database_url: str) -> dict[str, Any]:
     kwargs: dict[str, Any] = {"pool_pre_ping": True, "future": True}
     if database_url.startswith("sqlite"):
@@ -37,7 +51,7 @@ def get_engine(settings: Settings | None = None) -> Engine:
     global _engine
     if _engine is None:
         cfg = settings or get_settings()
-        url = (cfg.database_url or "").strip()
+        url = normalize_database_url(cfg.database_url or "")
         if not url:
             raise RuntimeError("DATABASE_URL is not configured.")
         _engine = create_engine(url, **_engine_kwargs(url))
