@@ -1,0 +1,14 @@
+{
+  "file_name": "batch1-1109.jpg",
+  "success": true,
+  "page_count": 1,
+  "ocr_engine": 2,
+  "processing_time_ms": 1578,
+  "pages": [
+    {
+      "page_number": 1,
+      "orientation": 0,
+      "text_length": 994
+    }
+  ]
+}

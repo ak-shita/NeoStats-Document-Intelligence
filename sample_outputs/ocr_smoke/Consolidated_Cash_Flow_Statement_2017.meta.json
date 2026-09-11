@@ -1,0 +1,19 @@
+{
+  "file_name": "Consolidated Cash Flow Statement 2017.pdf",
+  "success": true,
+  "page_count": 2,
+  "ocr_engine": 2,
+  "processing_time_ms": 2192,
+  "pages": [
+    {
+      "page_number": 1,
+      "orientation": 0,
+      "text_length": 1789
+    },
+    {
+      "page_number": 2,
+      "orientation": 0,
+      "text_length": 1741
+    }
+  ]
+}

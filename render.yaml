@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: neostats-document-intelligence-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: ./build-runtime-config.sh
+    staticPublishPath: .
+    envVars:
+      - key: API_BASE_URL
+        sync: false

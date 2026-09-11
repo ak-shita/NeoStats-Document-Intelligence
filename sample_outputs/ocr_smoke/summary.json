@@ -1,0 +1,67 @@
+[
+  {
+    "file_name": "Consolidated Balance Sheet 2017.pdf",
+    "relative_path": "New Dataset\\Balance Sheet\\Consolidated Balance Sheet 2017.pdf",
+    "original_size_bytes": 135633,
+    "success": true,
+    "page_count": 1,
+    "ocr_engine": 2,
+    "processing_time_ms": 2187,
+    "error_code": null,
+    "error_message": null,
+    "excerpt": "Consolidated Balance Sheet As at March 31, 2017 & in '000 As at As at Schedule 31-Mar-17 31-Mar-16 CAPITAL AND LIABILITIES Capital 1 5,125,091 5,056,373 Reserves and surplus 2 912,814,397 737,984,869 Minority interest...",
+    "output_file": "sample_outputs\\ocr_smoke\\Consolidated_Balance_Sheet_2017.txt"
+  },
+  {
+    "file_name": "Consolidated Profit & Loss 2022.pdf",
+    "relative_path": "New Dataset\\Profit & Loss\\Consolidated Profit & Loss 2022.pdf",
+    "original_size_bytes": 285912,
+    "success": true,
+    "page_count": 1,
+    "ocr_engine": 2,
+    "processing_time_ms": 1249,
+    "error_code": null,
+    "error_message": null,
+    "excerpt": "Consolidated Profit and Loss Account For the year ended March 31, 2022 & in crore Schedule March 31, 2022 Year ended March 31, 2021 Year ended I INCOME Interest earned 135,936.41 128,552.40 Other income 31,758.99 27,3...",
+    "output_file": "sample_outputs\\ocr_smoke\\Consolidated_Profit_Loss_2022.txt"
+  },
+  {
+    "file_name": "Consolidated Cash Flow Statement 2017.pdf",
+    "relative_path": "New Dataset\\Cash Flows\\Consolidated Cash Flow Statement 2017.pdf",
+    "original_size_bytes": 237152,
+    "success": true,
+    "page_count": 2,
+    "ocr_engine": 2,
+    "processing_time_ms": 2192,
+    "error_code": null,
+    "error_message": null,
+    "excerpt": "Consolidated Cash Flow Statement For the year ended March 31, 2017 7 in 000 Year ended Year ended 31-Mar-17 31-Mar-16 Cash flows from operating activities Consolidated profit before income tax 233,311,478 194,949,948 ...",
+    "output_file": "sample_outputs\\ocr_smoke\\Consolidated_Cash_Flow_Statement_2017.txt"
+  },
+  {
+    "file_name": "batch1-1109.jpg",
+    "relative_path": "New Dataset\\Invoices\\batch1-1109.jpg",
+    "original_size_bytes": 217666,
+    "success": true,
+    "page_count": 1,
+    "ocr_engine": 2,
+    "processing_time_ms": 1578,
+    "error_code": null,
+    "error_message": null,
+    "excerpt": "Invoice no: 94404257 Date of issue: 07/03/2013 Seller: Client: Cruz PLC Sandoval-Phillips USNV Harris 23699 James Villages Suite 818 FPO AA 34966 West Tamara, MS 58825 Tax Id: 964-99-8203 Tax Id: 976-94-5245 IBAN: GB3...",
+    "output_file": "sample_outputs\\ocr_smoke\\batch1-1109.txt"
+  },
+  {
+    "file_name": "20251118_000612.jpg",
+    "relative_path": "New Dataset\\Invoices\\20251118_000612.jpg",
+    "original_size_bytes": 4404194,
+    "success": true,
+    "page_count": 1,
+    "ocr_engine": 2,
+    "processing_time_ms": 1609,
+    "error_code": null,
+    "error_message": null,
+    "excerpt": "Printed on 16-Jul-25 at 18:39 Dated 16-Jul-25 Mode/Terms of Payment Market Area LOHAPOOL Other References Dated Delivery Note Date Destination per Disc. % 2,499.84 7.44 PCS 99% 0.45 2,064.60 892.80 7.44 PCS 99% 0.60 P...",
+    "output_file": "sample_outputs\\ocr_smoke\\20251118_000612.txt"
+  }
+]

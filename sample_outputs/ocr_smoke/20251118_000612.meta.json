@@ -1,0 +1,14 @@
+{
+  "file_name": "20251118_000612.jpg",
+  "success": true,
+  "page_count": 1,
+  "ocr_engine": 2,
+  "processing_time_ms": 1609,
+  "pages": [
+    {
+      "page_number": 1,
+      "orientation": 0,
+      "text_length": 2155
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "file_name": "Consolidated Profit & Loss 2022.pdf",
+  "success": true,
+  "page_count": 1,
+  "ocr_engine": 2,
+  "processing_time_ms": 1249,
+  "pages": [
+    {
+      "page_number": 1,
+      "orientation": 0,
+      "text_length": 2414
+    }
+  ]
+}

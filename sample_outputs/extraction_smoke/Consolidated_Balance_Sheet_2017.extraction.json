@@ -1,0 +1,678 @@
+{
+  "file_name": "Consolidated Balance Sheet 2017.pdf",
+  "document_type": "Balance Sheet",
+  "document": {
+    "document_type": "Balance Sheet",
+    "entity_name": {
+      "field": "entity_name",
+      "value": "HDFC Bank Limited",
+      "confidence": 0.95,
+      "evidence": {
+        "source_text": "HDFC Bank Limited Annual Report 2016-17",
+        "page_number": 1
+      }
+    },
+    "statement_title": {
+      "field": "statement_title",
+      "value": "Consolidated Balance Sheet",
+      "confidence": 0.99,
+      "evidence": {
+        "source_text": "Consolidated Balance Sheet",
+        "page_number": 1
+      }
+    },
+    "as_of_date": {
+      "field": "as_of_date",
+      "value": "March 31, 2017",
+      "confidence": 0.99,
+      "evidence": {
+        "source_text": "As at March 31, 2017",
+        "page_number": 1
+      }
+    },
+    "currency_unit": {
+      "field": "currency_unit",
+      "value": "& in '000",
+      "confidence": 0.9,
+      "evidence": {
+        "source_text": "& in '000",
+        "page_number": 1
+      }
+    },
+    "current_period_label": {
+      "field": "current_period_label",
+      "value": "31-Mar-17",
+      "confidence": 0.99,
+      "evidence": {
+        "source_text": "31-Mar-17",
+        "page_number": 1
+      }
+    },
+    "comparative_period_label": {
+      "field": "comparative_period_label",
+      "value": "31-Mar-16",
+      "confidence": 0.99,
+      "evidence": {
+        "source_text": "31-Mar-16",
+        "page_number": 1
+      }
+    },
+    "capital_and_liabilities": [
+      {
+        "description": {
+          "field": "description",
+          "value": "Capital",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Capital",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "1",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "1",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "5,125,091",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "5,125,091",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "5,056,373",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "5,056,373",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Reserves and surplus",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Reserves and surplus",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "2",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "2",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "912,814,397",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "912,814,397",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "737,984,869",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "737,984,869",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Minority interest",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Minority interest",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "2A",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "2A",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "2,914,389",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "2,914,389",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "1,806,228",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "1,806,228",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Deposits",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Deposits",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "3",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "3",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "6,431,342,479",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "6,431,342,479",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "5,458,732,889",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "5,458,732,889",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Borrowings",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Borrowings",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "4",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "4",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "984,156,439",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "984,156,439",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "1,037,139,597",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "1,037,139,597",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Other liabilities and provisions",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Other liabilities and provisions",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "5",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "5",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "587,088,812",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "587,088,812",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "381,403,308",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "381,403,308",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Total Capital and Liabilities",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Total",
+            "page_number": 1
+          }
+        },
+        "schedule": null,
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "8,923,441,607",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "8,923,441,607",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "7,622,123,264",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "7,622,123,264",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      }
+    ],
+    "assets": [
+      {
+        "description": {
+          "field": "description",
+          "value": "Cash and balances with Reserve Bank of India",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Cash and balances with Reserve Bank of India",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "6",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "6",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "379,105,485",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "379,105,485",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "300,765,846",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "300,765,846",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Balances with banks and money at call and short notice",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Balances with banks and money at call and short notice",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "7",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "7",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "114,005,711",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "114,005,711",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "89,922,969",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "89,922,969",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Investments",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Investments",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "8",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "8",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "2,107,771,120",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "2,107,771,120",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "1,936,338,475",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "1,936,338,475",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Advances",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Advances",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "9",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "9",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "5,854,809,871",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "5,854,809,871",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "4,872,904,174",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "4,872,904,174",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Fixed assets",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Fixed assets",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "10",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "10",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "38,146,997",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "38,146,997",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "34,796,976",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "34,796,976",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Other assets",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Other assets",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "11",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "11",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "429,602,423",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "429,602,423",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "387,394,824",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "387,394,824",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Total Assets",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Total",
+            "page_number": 1
+          }
+        },
+        "schedule": null,
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "8,923,441,607",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "8,923,441,607",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "7,622,123,264",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "7,622,123,264",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      }
+    ],
+    "contingent_items": [
+      {
+        "description": {
+          "field": "description",
+          "value": "Contingent liabilities",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Contingent liabilities",
+            "page_number": 1
+          }
+        },
+        "schedule": {
+          "field": "schedule",
+          "value": "12",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "12",
+            "page_number": 1
+          }
+        },
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "8,182,842,892",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "8,182,842,892",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "8,535,273,826",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "8,535,273,826",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      },
+      {
+        "description": {
+          "field": "description",
+          "value": "Bills for collection",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "Bills for collection",
+            "page_number": 1
+          }
+        },
+        "schedule": null,
+        "current_period_value": {
+          "field": "current_period_value",
+          "value": "308,480,352",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "308,480,352",
+            "page_number": 1
+          }
+        },
+        "comparative_period_value": {
+          "field": "comparative_period_value",
+          "value": "234,899,997",
+          "confidence": 0.99,
+          "evidence": {
+            "source_text": "234,899,997",
+            "page_number": 1
+          }
+        },
+        "additional_values": []
+      }
+    ],
+    "additional_fields": [
+      {
+        "field": "significant_accounting_policies_and_notes_schedule",
+        "value": "17 & 18",
+        "confidence": 0.99,
+        "evidence": {
+          "source_text": "Significant accounting policies and notes to the Consolidated financial statements 17 & 18",
+          "page_number": 1
+        }
+      }
+    ]
+  }
+}

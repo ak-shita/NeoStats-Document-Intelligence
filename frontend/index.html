@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NeoStats Document Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <script src="/js/runtime-config.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">N</div>
+        <div class="brand-text">
+          <p class="brand-name">NeoStats</p>
+          <p class="brand-sub">Document Intelligence</p>
+        </div>
+        <button type="button" class="collapse-btn" id="collapse-btn" aria-label="Collapse sidebar" title="Collapse sidebar">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M15.4 7.4 10.8 12l4.6 4.6-1.4 1.4L8 12l6-6z"/></svg>
+        </button>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <p class="nav-label">Workspace</p>
+        <a class="nav-item is-active" href="#dashboard" data-nav="dashboard">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h7v9H4V4zm9 0h7v5h-7V4zM4 15h7v5H4v-5zm9-4h7v9h-7v-9z"/></svg>
+          <span class="nav-text">Dashboard</span>
+        </a>
+        <a class="nav-item" href="#documents" data-nav="documents">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5zM8 12h8v2H8v-2zm0 4h8v2H8v-2z"/></svg>
+          <span class="nav-text">Documents</span>
+        </a>
+        <a class="nav-item" href="#upload" data-nav="upload">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M11 15V6.8L8.4 9.4 7 8l5-5 5 5-1.4 1.4L13 6.8V15h-2zm-6 5v-6h2v4h10v-4h2v6H5z"/></svg>
+          <span class="nav-text">Upload / Process</span>
+        </a>
+        <a class="nav-item" href="#history" data-nav="history">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 3a9 9 0 1 0 8.2 12.4l-1.8-.8A7 7 0 1 1 13 5V1l5 4-5 4V7a5 5 0 1 0 4.9 6.1l1.9.6A7 7 0 1 1 13 3zm-1 5h2v4.6l3 1.8-.9 1.5L12 13V8z"/></svg>
+          <span class="nav-text">History</span>
+        </a>
+
+        <p class="nav-label">System</p>
+        <a class="nav-item" href="#settings" data-nav="settings">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19.1 12.9a7.5 7.5 0 0 0 .1-.9 7.5 7.5 0 0 0-.1-.9l2-1.6-2-3.4-2.4 1a7.7 7.7 0 0 0-1.6-.9L14.7 2h-5.4L9 4.2a7.7 7.7 0 0 0-1.6.9l-2.4-1-2 3.4 2 1.6a7.5 7.5 0 0 0-.1.9 7.5 7.5 0 0 0 .1.9l-2 1.6 2 3.4 2.4-1c.5.4 1 .7 1.6.9L9.3 22h5.4L15 19.8c.6-.2 1.1-.5 1.6-.9l2.4 1 2-3.4-2-1.6zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"/></svg>
+          <span class="nav-text">Settings</span>
+        </a>
+        <a class="nav-item" id="api-docs-link" href="#" target="_blank" rel="noopener">
+          <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h8l5 5v13H7V3zm7 1.8V9h4.2L14 4.8zM9 12h8v1.6H9V12zm0 3h8v1.6H9V15z"/></svg>
+          <span class="nav-text">API Docs</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+          <span id="theme-toggle-label">Dark mode</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="main-wrap">
+      <header class="topbar">
+        <button type="button" class="menu-btn" id="menu-btn" aria-label="Open menu">☰</button>
+        <div class="topbar-copy">
+          <p class="crumb">NeoStats workspace</p>
+          <h1 id="page-title">Dashboard</h1>
+          <p class="page-sub" id="page-sub">Processed documents from the persistent store</p>
+        </div>
+        <div class="topbar-right">
+          <span class="health-pill" id="health-pill">Checking API…</span>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="view" id="view-dashboard">
+          <div class="cards" id="summary-cards"></div>
+          <div class="split">
+            <article class="panel grow">
+              <div class="panel-head">
+                <h2>Recent documents</h2>
+                <a class="text-link" href="#documents">View all</a>
+              </div>
+              <div id="dashboard-table"></div>
+            </article>
+            <article class="panel mix-panel">
+              <h2>Type mix</h2>
+              <p class="muted tight">From persisted API results only</p>
+              <div id="type-mix"></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view is-hidden" id="view-documents">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>All processed documents</h2>
+              <button type="button" class="btn btn-ghost" id="refresh-docs">Refresh</button>
+            </div>
+            <div id="documents-table"></div>
+          </article>
+        </section>
+
+        <section class="view is-hidden" id="view-upload">
+          <article class="panel upload-panel">
+            <h2>Process a document</h2>
+            <p class="muted">PDF, JPEG, or PNG. Document type is supplied by you — the API does not classify files.</p>
+            <form id="upload-form">
+              <label class="field">
+                <span>Document type</span>
+                <select name="document_type" id="document_type" required>
+                  <option value="invoice">Invoice</option>
+                  <option value="balance_sheet">Balance Sheet</option>
+                  <option value="profit_and_loss">Profit &amp; Loss</option>
+                  <option value="cash_flow">Cash Flow</option>
+                </select>
+              </label>
+              <label class="dropzone" id="dropzone">
+                <input type="file" id="file-input" name="file" accept=".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png" required />
+                <span class="drop-icon" aria-hidden="true"></span>
+                <strong>Drop a file here or browse</strong>
+                <span class="muted" id="file-label">PDF, JPG, or PNG</span>
+              </label>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="process-btn">Process document</button>
+              </div>
+            </form>
+            <div class="status-box" id="upload-status" hidden></div>
+          </article>
+        </section>
+
+        <section class="view is-hidden" id="view-history">
+          <article class="panel">
+            <div class="panel-head">
+              <h2>Processing history</h2>
+            </div>
+            <div id="history-list"></div>
+          </article>
+        </section>
+
+        <section class="view is-hidden" id="view-settings">
+          <article class="panel settings-panel">
+            <h2>Settings</h2>
+            <label class="field">
+              <span>API base URL</span>
+              <input type="url" id="api-base" placeholder="Same origin (leave empty) or http://127.0.0.1:8000" />
+            </label>
+            <p class="muted">Leave empty when the UI is served by the FastAPI app. Set an origin only if the frontend is hosted separately. Never put API keys here.</p>
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary" id="save-settings">Save</button>
+              <button type="button" class="btn btn-ghost" id="ping-health">Check API health</button>
+            </div>
+            <p class="muted" id="settings-status"></p>
+          </article>
+        </section>
+
+        <section class="view is-hidden" id="view-result">
+          <button type="button" class="text-link back-link" id="back-to-docs">← Back to documents</button>
+          <div id="result-root"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <div class="backdrop" id="sidebar-backdrop" hidden></div>
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

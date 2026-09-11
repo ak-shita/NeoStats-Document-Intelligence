@@ -1,0 +1,291 @@
+{
+  "file_name": "Consolidated Balance Sheet 2017.pdf",
+  "document_type": "Balance Sheet",
+  "tolerance": 0.01,
+  "check": [
+    {
+      "name": "balance_sheet_current_period_capital_liabilities_vs_assets",
+      "formula": "total_capital_and_liabilities ≈ total_assets",
+      "operands": {
+        "period": "current",
+        "total_capital_and_liabilities": {
+          "raw": "8,923,441,607",
+          "parsed": 8923441607.0
+        },
+        "total_assets": {
+          "raw": "8,923,441,607",
+          "parsed": 8923441607.0
+        }
+      },
+      "calculated_value": 8923441607.0,
+      "reported_value": 8923441607.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "reported_raw": "8,923,441,607"
+    },
+    {
+      "name": "balance_sheet_current_period_sum_capital_liability_components",
+      "formula": "sum(capital_and_liability_components) ≈ total_capital_and_liabilities",
+      "operands": {
+        "period": "current",
+        "components": [
+          {
+            "description": "Capital",
+            "amount": {
+              "raw": "5,125,091",
+              "parsed": 5125091.0
+            }
+          },
+          {
+            "description": "Reserves and surplus",
+            "amount": {
+              "raw": "912,814,397",
+              "parsed": 912814397.0
+            }
+          },
+          {
+            "description": "Minority interest",
+            "amount": {
+              "raw": "2,914,389",
+              "parsed": 2914389.0
+            }
+          },
+          {
+            "description": "Deposits",
+            "amount": {
+              "raw": "6,431,342,479",
+              "parsed": 6431342479.0
+            }
+          },
+          {
+            "description": "Borrowings",
+            "amount": {
+              "raw": "984,156,439",
+              "parsed": 984156439.0
+            }
+          },
+          {
+            "description": "Other liabilities and provisions",
+            "amount": {
+              "raw": "587,088,812",
+              "parsed": 587088812.0
+            }
+          }
+        ],
+        "usable_component_count": 6,
+        "total_capital_and_liabilities": {
+          "raw": "8,923,441,607",
+          "parsed": 8923441607.0
+        }
+      },
+      "calculated_value": 8923441607.0,
+      "reported_value": 8923441607.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "reported_raw": "8,923,441,607"
+    },
+    {
+      "name": "balance_sheet_current_period_sum_asset_components",
+      "formula": "sum(asset_components) ≈ total_assets",
+      "operands": {
+        "period": "current",
+        "components": [
+          {
+            "description": "Cash and balances with Reserve Bank of India",
+            "amount": {
+              "raw": "379,105,485",
+              "parsed": 379105485.0
+            }
+          },
+          {
+            "description": "Balances with banks and money at call and short notice",
+            "amount": {
+              "raw": "114,005,711",
+              "parsed": 114005711.0
+            }
+          },
+          {
+            "description": "Investments",
+            "amount": {
+              "raw": "2,107,771,120",
+              "parsed": 2107771120.0
+            }
+          },
+          {
+            "description": "Advances",
+            "amount": {
+              "raw": "5,854,809,871",
+              "parsed": 5854809871.0
+            }
+          },
+          {
+            "description": "Fixed assets",
+            "amount": {
+              "raw": "38,146,997",
+              "parsed": 38146997.0
+            }
+          },
+          {
+            "description": "Other assets",
+            "amount": {
+              "raw": "429,602,423",
+              "parsed": 429602423.0
+            }
+          }
+        ],
+        "usable_component_count": 6,
+        "total_assets": {
+          "raw": "8,923,441,607",
+          "parsed": 8923441607.0
+        }
+      },
+      "calculated_value": 8923441607.0,
+      "reported_value": 8923441607.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "reported_raw": "8,923,441,607"
+    },
+    {
+      "name": "balance_sheet_comparative_period_capital_liabilities_vs_assets",
+      "formula": "total_capital_and_liabilities ≈ total_assets",
+      "operands": {
+        "period": "comparative",
+        "total_capital_and_liabilities": {
+          "raw": "7,622,123,264",
+          "parsed": 7622123264.0
+        },
+        "total_assets": {
+          "raw": "7,622,123,264",
+          "parsed": 7622123264.0
+        }
+      },
+      "calculated_value": 7622123264.0,
+      "reported_value": 7622123264.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "reported_raw": "7,622,123,264"
+    },
+    {
+      "name": "balance_sheet_comparative_period_sum_capital_liability_components",
+      "formula": "sum(capital_and_liability_components) ≈ total_capital_and_liabilities",
+      "operands": {
+        "period": "comparative",
+        "components": [
+          {
+            "description": "Capital",
+            "amount": {
+              "raw": "5,056,373",
+              "parsed": 5056373.0
+            }
+          },
+          {
+            "description": "Reserves and surplus",
+            "amount": {
+              "raw": "737,984,869",
+              "parsed": 737984869.0
+            }
+          },
+          {
+            "description": "Minority interest",
+            "amount": {
+              "raw": "1,806,228",
+              "parsed": 1806228.0
+            }
+          },
+          {
+            "description": "Deposits",
+            "amount": {
+              "raw": "5,458,732,889",
+              "parsed": 5458732889.0
+            }
+          },
+          {
+            "description": "Borrowings",
+            "amount": {
+              "raw": "1,037,139,597",
+              "parsed": 1037139597.0
+            }
+          },
+          {
+            "description": "Other liabilities and provisions",
+            "amount": {
+              "raw": "381,403,308",
+              "parsed": 381403308.0
+            }
+          }
+        ],
+        "usable_component_count": 6,
+        "total_capital_and_liabilities": {
+          "raw": "7,622,123,264",
+          "parsed": 7622123264.0
+        }
+      },
+      "calculated_value": 7622123264.0,
+      "reported_value": 7622123264.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "reported_raw": "7,622,123,264"
+    },
+    {
+      "name": "balance_sheet_comparative_period_sum_asset_components",
+      "formula": "sum(asset_components) ≈ total_assets",
+      "operands": {
+        "period": "comparative",
+        "components": [
+          {
+            "description": "Cash and balances with Reserve Bank of India",
+            "amount": {
+              "raw": "300,765,846",
+              "parsed": 300765846.0
+            }
+          },
+          {
+            "description": "Balances with banks and money at call and short notice",
+            "amount": {
+              "raw": "89,922,969",
+              "parsed": 89922969.0
+            }
+          },
+          {
+            "description": "Investments",
+            "amount": {
+              "raw": "1,936,338,475",
+              "parsed": 1936338475.0
+            }
+          },
+          {
+            "description": "Advances",
+            "amount": {
+              "raw": "4,872,904,174",
+              "parsed": 4872904174.0
+            }
+          },
+          {
+            "description": "Fixed assets",
+            "amount": {
+              "raw": "34,796,976",
+              "parsed": 34796976.0
+            }
+          },
+          {
+            "description": "Other assets",
+            "amount": {
+              "raw": "387,394,824",
+              "parsed": 387394824.0
+            }
+          }
+        ],
+        "usable_component_count": 6,
+        "total_assets": {
+          "raw": "7,622,123,264",
+          "parsed": 7622123264.0
+        }
+      },
+      "calculated_value": 7622123264.0,
+      "reported_value": 7622123264.0,
+      "variance": 0.0,
+      "status": "PASS",
+      "reported_raw": "7,622,123,264"
+    }
+  ]
+}
