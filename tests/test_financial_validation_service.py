@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import copy
+import json
+from pathlib import Path
 from typing import Any
 
 import pytest
@@ -11,6 +14,15 @@ from app.services.financial_validation_service import (
     FinancialValidationError,
     parse_amount,
     validate_financials,
+)
+from app.schemas.extraction import BalanceSheetExtraction
+
+
+BALANCE_SHEET_2017_FIXTURE = (
+    Path(__file__).resolve().parents[1]
+    / "sample_outputs"
+    / "extraction_smoke"
+    / "Consolidated_Balance_Sheet_2017.extraction.json"
 )
 
 
@@ -323,6 +335,45 @@ def test_balance_sheet_not_applicable_insufficient_components_and_missing_total(
         _by_name(result, "balance_sheet_comparative_period_capital_liabilities_vs_assets")["status"]
         == "NOT_APPLICABLE"
     )
+
+
+def test_saved_balance_sheet_fixture_has_six_populated_pass_checks():
+    """Known-good extraction fixture validates without any OCR/Gemini call."""
+    extraction = json.loads(BALANCE_SHEET_2017_FIXTURE.read_text(encoding="utf-8"))
+
+    result = validate_financials(extraction)
+
+    assert len(result["check"]) == 6
+    assert all(check["status"] == "PASS" for check in result["check"])
+    assert all(check["calculated_value"] is not None for check in result["check"])
+    assert all(check["reported_value"] is not None for check in result["check"])
+    assert all(check["variance"] == 0.0 for check in result["check"])
+
+
+def test_balance_sheet_generic_total_rows_match_live_extraction_shape():
+    """Regression for live Gemini output that abbreviates both section totals."""
+    extraction = json.loads(BALANCE_SHEET_2017_FIXTURE.read_text(encoding="utf-8"))
+    live_document = copy.deepcopy(extraction["document"])
+    live_document["capital_and_liabilities"][-1]["description"]["value"] = "Total"
+    live_document["assets"][-1]["description"]["value"] = "Total"
+
+    # This is the same Pydantic model_dump boundary used after Gemini output.
+    normalized_document = BalanceSheetExtraction.model_validate(live_document).model_dump(
+        mode="json"
+    )
+    result = validate_financials(
+        {
+            "file_name": extraction["file_name"],
+            "document_type": "Balance Sheet",
+            "document": normalized_document,
+        }
+    )
+
+    assert len(result["check"]) == 6
+    assert all(check["status"] == "PASS" for check in result["check"])
+    assert all(check["calculated_value"] is not None for check in result["check"])
+    assert all(check["reported_value"] is not None for check in result["check"])
+    assert all(check["variance"] == 0.0 for check in result["check"])
 
 
 # ---------------------------------------------------------------------------

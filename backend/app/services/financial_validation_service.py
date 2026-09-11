@@ -276,6 +276,29 @@ def _find_row(
     return best
 
 
+def _find_balance_sheet_total_row(
+    rows: Sequence[Mapping[str, Any]],
+    patterns: Sequence[str],
+) -> Mapping[str, Any] | None:
+    """Find a labelled balance-sheet total, then an exact generic ``Total``.
+
+    Gemini can preserve the section rows while abbreviating the last label to
+    ``Total``. Within the already-separated capital/liabilities or assets
+    sections, that exact row is the reported section total. Other total-like
+    labels are deliberately not accepted as a fallback.
+    """
+    labelled_total = _find_row(rows, patterns)
+    if labelled_total is not None:
+        return labelled_total
+
+    for row in rows:
+        if not isinstance(row, Mapping):
+            continue
+        if _normalize_label(_row_description(row) or "") == "total":
+            return row
+    return None
+
+
 def _find_additional_amount(
     fields: Sequence[Mapping[str, Any]] | None,
     patterns: Sequence[str],
@@ -538,8 +561,8 @@ def _validate_balance_sheet(
     if not isinstance(asset_rows, list):
         asset_rows = []
 
-    total_cl_row = _find_row(capital_rows, _TOTAL_CL_PATTERNS)
-    total_assets_row = _find_row(asset_rows, _TOTAL_ASSETS_PATTERNS)
+    total_cl_row = _find_balance_sheet_total_row(capital_rows, _TOTAL_CL_PATTERNS)
+    total_assets_row = _find_balance_sheet_total_row(asset_rows, _TOTAL_ASSETS_PATTERNS)
 
     for period in ("current", "comparative"):
         period_label = f"{period}_period"
