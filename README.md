@@ -44,6 +44,23 @@ The processing API follows this sequence:
 5. Run deterministic financial checks; the service never asks the LLM to perform validation arithmetic.
 6. Store the complete structured result as JSON in MySQL and return it through the API/UI.
 
+## Technology Stack
+
+- Python: Core backend & processing
+  Strong ecosystem for AI, OCR, data processing and validation
+- FastAPI: REST API
+  Lightweight, fast, typed and provides automatic OpenAPI/Swagger documentation
+- OCR.Space: OCR
+  External OCR service suitable for scanned documents and rapid implementation
+- Google Gemini: AI extraction
+  Capable of semantic document understanding and structured extraction
+- MySQL: Database
+  Relational storage suitable for document metadata and structured processing results
+- HTML,CSS,JS: Frontend
+- Render: Frontend Deployment
+- Railway: Backend + MySQL deployment
+- pytest: Testing
+
 ## Supported input
 
 - Document types: `invoice`, `balance_sheet`, `profit_and_loss`, `cash_flow`.
