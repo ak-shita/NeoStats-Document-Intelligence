@@ -8,7 +8,7 @@ const TYPE_LABELS = {
 const VIEWS = {
   dashboard: { title: "Dashboard", sub: "Processed documents from the persistent store" },
   documents: { title: "Documents", sub: "Every result saved in MySQL" },
-  upload: { title: "Upload / Process", sub: "Send a file to the existing API pipeline" },
+  upload: { title: "Upload / Process", sub: " " },
   history: { title: "History", sub: "Most recently processed first" },
   settings: { title: "Settings", sub: "Connection and appearance" },
   result: { title: "Document result", sub: "Extracted fields, validation, and source evidence" },
@@ -232,10 +232,10 @@ function summaryCards(docs) {
   const confs = docs.map((d) => d.overall_confidence).filter((v) => typeof v === "number");
   const avg = confs.length ? confs.reduce((a, b) => a + b, 0) / confs.length : null;
   const items = [
-    ["Total documents", total, "From GET /api/v1/documents", ""],
-    ["Processing PASS / FAILED", `${passed} / ${failed}`, "processing_status", meter(passed, failed, total)],
-    ["Validation PASS / FAIL", `${valPass} / ${valFail}`, "validation.overall_status", meter(valPass, valFail, total)],
-    ["Average confidence", avg === null ? "—" : formatConfidence(avg), "overall_confidence", ""],
+    ["Total documents", total, "", ""],
+    ["Processing PASS / FAILED", `${passed} / ${failed}`, "", meter(passed, failed, total)],
+    ["Validation PASS / FAIL", `${valPass} / ${valFail}`, "", meter(valPass, valFail, total)],
+    ["Average confidence", avg === null ? "—" : formatConfidence(avg), "", ""],
   ];
   return items
     .map(
