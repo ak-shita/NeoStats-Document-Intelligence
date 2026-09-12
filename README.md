@@ -46,15 +46,15 @@ The processing API follows this sequence:
 
 ## Technology Stack
 
-- Python: Core backend & processing
+- Python: Core backend & processing -
   Strong ecosystem for AI, OCR, data processing and validation
-- FastAPI: REST API
+- FastAPI: REST API -
   Lightweight, fast, typed and provides automatic OpenAPI/Swagger documentation
-- OCR.Space: OCR
+- OCR.Space: OCR - 
   External OCR service suitable for scanned documents and rapid implementation
-- Google Gemini: AI extraction
+- Google Gemini: AI extraction -
   Capable of semantic document understanding and structured extraction
-- MySQL: Database
+- MySQL: Database -
   Relational storage suitable for document metadata and structured processing results
 - HTML,CSS,JS: Frontend
 - Render: Frontend Deployment
@@ -87,6 +87,11 @@ Document-result reads use `Cache-Control: no-store` so a reprocessed filename do
 ## Local setup
 
 Prerequisites: Python 3.12+, a MySQL-compatible database for persistence, an OCR.Space key, and a Gemini API key.
+
+### Clone the Repository
+
+git clone https://github.com/ak-shita/NeoStats-Document-Intelligence.git
+cd NeoStats-Document-Intelligence
 
 ```sh
 python -m venv venv
