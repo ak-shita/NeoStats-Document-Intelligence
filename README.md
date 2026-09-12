@@ -2,11 +2,23 @@
 
 NeoStats is an AI-assisted document-intelligence application prepared for the NeoStats AI Engineer Intern assessment. It accepts a supported financial document, extracts structured data, runs deterministic validation checks, and persists the complete result for retrieval in the web UI and API.
 
-> Live frontend URL: not deployed yet
->
-> Live backend/API URL: not deployed yet
->
-> Swagger UI: not deployed yet
+> Live frontend URL:
+> https://neostats-document-intelligence-pwpu.onrender.com
+
+> Live backend/API URL:
+> https://neostats-document-intelligence-frontend-production.up.railway.app
+
+> Swagger UI:
+> https://neostats-document-intelligence-frontend-production.up.railway.app/docs
+
+## Deployment Status
+
+- Frontend: Render
+- Backend/API: Railway
+- Database: Railway MySQL
+- API health: Live
+- Swagger: Live
+- Public repository: GitHub
 
 ## Architecture and processing flow
 
