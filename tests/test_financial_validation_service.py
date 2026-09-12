@@ -54,6 +54,25 @@ def _row(
     }
 
 
+def _public_field(value: Any) -> dict[str, Any]:
+    """Persisted/API scalar shape produced by document_service."""
+    return {
+        "value": value,
+        "confidence": 0.9 if value is not None else None,
+        "page_number": 1 if value is not None else None,
+    }
+
+
+def _public_row(description: str, current: Any, comparative: Any = None) -> dict[str, Any]:
+    """Persisted/API statement-row shape without internal ``field`` metadata."""
+    return {
+        "description": _public_field(description),
+        "current_period_value": _public_field(current),
+        "comparative_period_value": _public_field(comparative),
+        "additional_values": [],
+    }
+
+
 def _by_name(result: dict[str, Any], name: str) -> dict[str, Any]:
     for item in result["check"]:
         if item["name"] == name:
@@ -677,3 +696,122 @@ def test_comma_formatted_large_balance_sheet_values():
     assert eq["status"] == "PASS"
     assert eq["operands"]["total_assets"]["raw"] == "9,125,091"
     assert eq["operands"]["total_assets"]["parsed"] == pytest.approx(9_125_091.0)
+
+
+# ---------------------------------------------------------------------------
+# Persisted/API extracted_data compatibility
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    ("document_type", "extracted_data", "check_name", "expected_status"),
+    [
+        (
+            "invoice",
+            {
+                "line_items": [
+                    {
+                        "quantity": _public_field("2"),
+                        "unit_price": _public_field("10"),
+                        "net_amount": _public_field("20"),
+                    }
+                ],
+                "subtotal_net": _public_field("20"),
+                "total_vat": _public_field("2"),
+                "total_gross": _public_field("22"),
+                "additional_fields": [],
+            },
+            "invoice_taxable_plus_tax_vs_total",
+            "PASS",
+        ),
+        (
+            "balance_sheet",
+            {
+                "capital_and_liabilities": [
+                    _public_row("Capital", "40"),
+                    _public_row("Reserves", "60"),
+                    _public_row("Total Capital and Liabilities", "100"),
+                ],
+                "assets": [
+                    _public_row("Cash", "30"),
+                    _public_row("Investments", "70"),
+                    _public_row("Total Assets", "100"),
+                ],
+            },
+            "balance_sheet_current_period_capital_liabilities_vs_assets",
+            "PASS",
+        ),
+        (
+            "profit_and_loss",
+            {
+                "income": [
+                    _public_row("Interest earned", "100"),
+                    _public_row("Other income", "20"),
+                    _public_row("Total income", "125"),
+                ],
+                "expenditure": [],
+                "profit": [],
+                "appropriations": [],
+            },
+            "pnl_current_period_interest_plus_other_income",
+            "FAIL",
+        ),
+        (
+            "cash_flow",
+            {
+                "operating_activities": [_public_row("Net cash from operating activities", "10")],
+                "investing_activities": [_public_row("Net cash from investing activities", "5")],
+                "financing_activities": [_public_row("Net cash from financing activities", "5")],
+                "net_change_and_cash_balances": [
+                    _public_row("Net increase in cash and cash equivalents", "25"),
+                    _public_row("Opening cash", "100"),
+                    _public_row("Closing cash", "125"),
+                ],
+            },
+            "cash_flow_current_period_activities_vs_net_increase",
+            "FAIL",
+        ),
+    ],
+)
+def test_persisted_extracted_data_populates_financial_checks(
+    document_type: str,
+    extracted_data: dict[str, Any],
+    check_name: str,
+    expected_status: str,
+):
+    """Persisted public extraction trees remain valid validator input offline."""
+    result = validate_financials(
+        {
+            "file_name": "persisted-result.json",
+            "document_type": document_type,
+            "extracted_data": extracted_data,
+        }
+    )
+
+    check = _by_name(result, check_name)
+    assert check["status"] == expected_status
+    assert check["calculated_value"] is not None
+    assert check["reported_value"] is not None
+    assert check["variance"] is not None
+
+
+def test_persisted_extracted_data_missing_inputs_remain_not_applicable():
+    result = validate_financials(
+        {
+            "document_type": "cash_flow",
+            "extracted_data": {
+                "operating_activities": [_public_row("Net cash from operating activities", "10")],
+                "investing_activities": [_public_row("Net cash from investing activities", "5")],
+                "financing_activities": [_public_row("Net cash from financing activities", None)],
+                "net_change_and_cash_balances": [
+                    _public_row("Net increase in cash and cash equivalents", "15")
+                ],
+            },
+        }
+    )
+
+    check = _by_name(result, "cash_flow_current_period_activities_vs_net_increase")
+    assert check["status"] == "NOT_APPLICABLE"
+    assert check["calculated_value"] is None
+    assert check["reported_value"] is None
+    assert check["variance"] is None

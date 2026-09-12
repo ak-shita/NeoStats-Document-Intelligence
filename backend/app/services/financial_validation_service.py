@@ -1251,13 +1251,20 @@ def validate_financials(
         )
 
     document_type = extraction_result.get("document_type")
+    # During processing the validator receives the internal extraction envelope
+    # (``document``). Persisted API results retain the same field tree under
+    # ``extracted_data`` after removing internal-only evidence metadata. Both
+    # representations use ``value`` for extracted scalars, so selecting the
+    # available tree preserves the existing validation formulas and semantics.
     document = extraction_result.get("document")
+    if not isinstance(document, Mapping):
+        document = extraction_result.get("extracted_data")
     file_name = extraction_result.get("file_name")
 
     if not isinstance(document, Mapping):
         raise FinancialValidationError(
             code="INVALID_EXTRACTION_PAYLOAD",
-            message="extraction_result.document must be a mapping/dict.",
+            message="extraction_result.document or extracted_data must be a mapping/dict.",
         )
 
     # Prefer envelope document_type; fall back to nested document_type.
