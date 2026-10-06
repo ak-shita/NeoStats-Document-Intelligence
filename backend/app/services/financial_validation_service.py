@@ -994,6 +994,7 @@ _CF_NET_FINANCING = (
     "net cash from financing",
     "net cash generated from financing",
     "net cash used in financing",
+    "net cash used in from financing",
     "cash flows from financing activities",
     "net cash flow from financing",
 )
@@ -1041,6 +1042,35 @@ def _section_net_row(
     return None
 
 
+def _cash_boundary_row(
+    rows: Sequence[Mapping[str, Any]],
+    patterns: Sequence[str],
+    *,
+    boundary: Literal["opening", "closing"],
+) -> Mapping[str, Any] | None:
+    """Find named opening/closing cash rows, including ordered ``as at`` labels.
+
+    Some statements identify opening and closing balances only by date ("as at
+    April 1st" / "as at March 31st"). In the net-change section those dated
+    balance rows appear in statement order, with opening before closing.
+    """
+    matched = _find_row(rows, patterns)
+    if matched is not None:
+        return matched
+
+    as_at_rows = [
+        row
+        for row in rows
+        if isinstance(row, Mapping)
+        and _label_matches(
+            _row_description(row), ("cash and cash equivalents as at",)
+        )
+    ]
+    if not as_at_rows:
+        return None
+    return as_at_rows[0] if boundary == "opening" else as_at_rows[-1]
+
+
 def _validate_cash_flow(
     document: Mapping[str, Any],
     tolerance: float,
@@ -1065,8 +1095,8 @@ def _validate_cash_flow(
 
     fx_row = _find_row(net_change, _CF_FX) or _find_row(operating, _CF_FX)
     net_inc_row = _find_row(net_change, _CF_NET_INCREASE)
-    opening_row = _find_row(net_change, _CF_OPENING)
-    closing_row = _find_row(net_change, _CF_CLOSING)
+    opening_row = _cash_boundary_row(net_change, _CF_OPENING, boundary="opening")
+    closing_row = _cash_boundary_row(net_change, _CF_CLOSING, boundary="closing")
     # Optional adjustments beyond FX (explicitly labeled); missing => omitted, not zeroed
     other_adj_row = None
     for row in net_change:

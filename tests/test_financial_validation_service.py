@@ -553,6 +553,71 @@ def test_cash_flow_pass_both_periods_with_brackets():
     assert _by_name(result, "cash_flow_comparative_period_opening_plus_net_vs_closing")["status"] == "PASS"
 
 
+def test_cash_flow_real_world_financing_and_as_at_labels():
+    extraction = {
+        "file_name": "cf_label_variants.pdf",
+        "document_type": "Cash Flow",
+        "document": {
+            "document_type": "Cash Flow",
+            "operating_activities": [
+                _row("Net cash from operating activities", "172143764", "172815931"),
+            ],
+            "investing_activities": [
+                _row("Net cash used in investing activities", "-8521873", "-11476802"),
+            ],
+            "financing_activities": [
+                _row(
+                    "Net cash (used in) / from financing activities",
+                    "573776603",
+                    "-58929743",
+                ),
+            ],
+            "net_change_and_cash_balances": [
+                _row(
+                    "Effect of exchange fluctuation on translation reserve",
+                    "105872",
+                    "-282622",
+                ),
+                _row("Net increase in cash and cash equivalents", "737504366", "102422381"),
+                _row("Cash and cash equivalents as at April 1st", "493111196", "390688815"),
+                _row("Cash and cash equivalents on amalgamation", None, "295617"),
+                _row("Cash and cash equivalents as at March 31st", "1230615562", "493111196"),
+            ],
+        },
+    }
+
+    result = validate_financials(extraction)
+    current_activities = _by_name(
+        result, "cash_flow_current_period_activities_vs_net_increase"
+    )
+    current_bridge = _by_name(
+        result, "cash_flow_current_period_opening_plus_net_vs_closing"
+    )
+    comparative_activities = _by_name(
+        result, "cash_flow_comparative_period_activities_vs_net_increase"
+    )
+    comparative_bridge = _by_name(
+        result, "cash_flow_comparative_period_opening_plus_net_vs_closing"
+    )
+
+    assert current_activities["status"] == "PASS"
+    assert current_activities["calculated_value"] == pytest.approx(737504366)
+    assert current_activities["reported_value"] == pytest.approx(737504366)
+    assert current_bridge["status"] == "PASS"
+    assert current_bridge["calculated_value"] == pytest.approx(1230615562)
+    assert current_bridge["reported_value"] == pytest.approx(1230615562)
+
+    # Amalgamation is not an operand in the activities-vs-net-increase formula.
+    # Its 295,617 comparative value therefore leaves this comparison as FAIL.
+    assert comparative_activities["status"] == "FAIL"
+    assert comparative_activities["calculated_value"] == pytest.approx(102126764)
+    assert comparative_activities["reported_value"] == pytest.approx(102422381)
+    assert comparative_activities["variance"] == pytest.approx(-295617)
+    assert comparative_bridge["status"] == "PASS"
+    assert comparative_bridge["calculated_value"] == pytest.approx(493111196)
+    assert comparative_bridge["reported_value"] == pytest.approx(493111196)
+
+
 def test_cash_flow_fail_and_not_applicable_missing():
     extraction = {
         "file_name": "cf_bad.pdf",
